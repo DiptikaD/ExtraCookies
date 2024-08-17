@@ -1,7 +1,7 @@
 export enum Tags {
   PRODUCE = 'PRODUCE',
 
-  READYMADE = 'READYMADE',
+  READY_MADE = 'READY_MADE',
 
   OTHER = 'OTHER',
 }

@@ -1,8 +1,8 @@
 {
   "annotations": {
-    "changelogDate": "20240817183818"
+    "changelogDate": "20240817192811"
   },
-  "applications": ["extracookies"],
+  "applications": ["jhipster"],
   "fields": [
     {
       "fieldName": "uid",

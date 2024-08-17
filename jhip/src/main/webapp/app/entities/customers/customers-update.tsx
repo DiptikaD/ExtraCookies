@@ -74,8 +74,8 @@ export const CustomersUpdate = () => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="extracookiesApp.customers.home.createOrEditLabel" data-cy="CustomersCreateUpdateHeading">
-            <Translate contentKey="extracookiesApp.customers.home.createOrEditLabel">Create or edit a Customers</Translate>
+          <h2 id="jhipsterApp.customers.home.createOrEditLabel" data-cy="CustomersCreateUpdateHeading">
+            <Translate contentKey="jhipsterApp.customers.home.createOrEditLabel">Create or edit a Customers</Translate>
           </h2>
         </Col>
       </Row>
@@ -96,7 +96,7 @@ export const CustomersUpdate = () => {
                 />
               ) : null}
               <ValidatedField
-                label={translate('extracookiesApp.customers.uid')}
+                label={translate('jhipsterApp.customers.uid')}
                 id="customers-uid"
                 name="uid"
                 data-cy="uid"
@@ -107,14 +107,14 @@ export const CustomersUpdate = () => {
                 }}
               />
               <ValidatedField
-                label={translate('extracookiesApp.customers.email')}
+                label={translate('jhipsterApp.customers.email')}
                 id="customers-email"
                 name="email"
                 data-cy="email"
                 type="text"
               />
               <ValidatedField
-                label={translate('extracookiesApp.customers.userName')}
+                label={translate('jhipsterApp.customers.userName')}
                 id="customers-userName"
                 name="userName"
                 data-cy="userName"
@@ -124,7 +124,7 @@ export const CustomersUpdate = () => {
                 }}
               />
               <ValidatedField
-                label={translate('extracookiesApp.customers.password')}
+                label={translate('jhipsterApp.customers.password')}
                 id="customers-password"
                 name="password"
                 data-cy="password"
@@ -134,7 +134,7 @@ export const CustomersUpdate = () => {
                 }}
               />
               <ValidatedField
-                label={translate('extracookiesApp.customers.profilePicIUrl')}
+                label={translate('jhipsterApp.customers.profilePicIUrl')}
                 id="customers-profilePicIUrl"
                 name="profilePicIUrl"
                 data-cy="profilePicIUrl"

@@ -22,7 +22,7 @@ export const CustomersDetail = () => {
     <Row>
       <Col md="8">
         <h2 data-cy="customersDetailsHeading">
-          <Translate contentKey="extracookiesApp.customers.detail.title">Customers</Translate>
+          <Translate contentKey="jhipsterApp.customers.detail.title">Customers</Translate>
         </h2>
         <dl className="jh-entity-details">
           <dt>
@@ -33,31 +33,31 @@ export const CustomersDetail = () => {
           <dd>{customersEntity.id}</dd>
           <dt>
             <span id="uid">
-              <Translate contentKey="extracookiesApp.customers.uid">Uid</Translate>
+              <Translate contentKey="jhipsterApp.customers.uid">Uid</Translate>
             </span>
           </dt>
           <dd>{customersEntity.uid}</dd>
           <dt>
             <span id="email">
-              <Translate contentKey="extracookiesApp.customers.email">Email</Translate>
+              <Translate contentKey="jhipsterApp.customers.email">Email</Translate>
             </span>
           </dt>
           <dd>{customersEntity.email}</dd>
           <dt>
             <span id="userName">
-              <Translate contentKey="extracookiesApp.customers.userName">User Name</Translate>
+              <Translate contentKey="jhipsterApp.customers.userName">User Name</Translate>
             </span>
           </dt>
           <dd>{customersEntity.userName}</dd>
           <dt>
             <span id="password">
-              <Translate contentKey="extracookiesApp.customers.password">Password</Translate>
+              <Translate contentKey="jhipsterApp.customers.password">Password</Translate>
             </span>
           </dt>
           <dd>{customersEntity.password}</dd>
           <dt>
             <span id="profilePicIUrl">
-              <Translate contentKey="extracookiesApp.customers.profilePicIUrl">Profile Pic I Url</Translate>
+              <Translate contentKey="jhipsterApp.customers.profilePicIUrl">Profile Pic I Url</Translate>
             </span>
           </dt>
           <dd>{customersEntity.profilePicIUrl}</dd>

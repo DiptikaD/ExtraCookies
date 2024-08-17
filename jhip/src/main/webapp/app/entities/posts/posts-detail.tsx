@@ -23,7 +23,7 @@ export const PostsDetail = () => {
     <Row>
       <Col md="8">
         <h2 data-cy="postsDetailsHeading">
-          <Translate contentKey="extracookiesApp.posts.detail.title">Posts</Translate>
+          <Translate contentKey="jhipsterApp.posts.detail.title">Posts</Translate>
         </h2>
         <dl className="jh-entity-details">
           <dt>
@@ -34,52 +34,48 @@ export const PostsDetail = () => {
           <dd>{postsEntity.id}</dd>
           <dt>
             <span id="postId">
-              <Translate contentKey="extracookiesApp.posts.postId">Post Id</Translate>
+              <Translate contentKey="jhipsterApp.posts.postId">Post Id</Translate>
             </span>
           </dt>
           <dd>{postsEntity.postId}</dd>
           <dt>
             <span id="price">
-              <Translate contentKey="extracookiesApp.posts.price">Price</Translate>
+              <Translate contentKey="jhipsterApp.posts.price">Price</Translate>
             </span>
           </dt>
           <dd>{postsEntity.price}</dd>
           <dt>
             <span id="title">
-              <Translate contentKey="extracookiesApp.posts.title">Title</Translate>
+              <Translate contentKey="jhipsterApp.posts.title">Title</Translate>
             </span>
           </dt>
           <dd>{postsEntity.title}</dd>
           <dt>
             <span id="location">
-              <Translate contentKey="extracookiesApp.posts.location">Location</Translate>
+              <Translate contentKey="jhipsterApp.posts.location">Location</Translate>
             </span>
           </dt>
           <dd>{postsEntity.location}</dd>
           <dt>
             <span id="availability">
-              <Translate contentKey="extracookiesApp.posts.availability">Availability</Translate>
+              <Translate contentKey="jhipsterApp.posts.availability">Availability</Translate>
             </span>
           </dt>
           <dd>{postsEntity.availability ? <TextFormat value={postsEntity.availability} type="date" format={APP_DATE_FORMAT} /> : null}</dd>
           <dt>
             <span id="rating">
-              <Translate contentKey="extracookiesApp.posts.rating">Rating</Translate>
+              <Translate contentKey="jhipsterApp.posts.rating">Rating</Translate>
             </span>
           </dt>
           <dd>{postsEntity.rating}</dd>
           <dt>
             <span id="tag">
-              <Translate contentKey="extracookiesApp.posts.tag">Tag</Translate>
+              <Translate contentKey="jhipsterApp.posts.tag">Tag</Translate>
             </span>
           </dt>
           <dd>{postsEntity.tag}</dd>
           <dt>
-            <Translate contentKey="extracookiesApp.posts.pid">Pid</Translate>
-          </dt>
-          <dd>{postsEntity.pid ? postsEntity.pid.id : ''}</dd>
-          <dt>
-            <Translate contentKey="extracookiesApp.posts.customers">Customers</Translate>
+            <Translate contentKey="jhipsterApp.posts.customers">Customers</Translate>
           </dt>
           <dd>{postsEntity.customers ? postsEntity.customers.id : ''}</dd>
         </dl>

@@ -8,8 +8,6 @@ import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateT
 import { mapIdList } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
-import { IUsers } from 'app/shared/model/users.model';
-import { getEntities as getUsers } from 'app/entities/users/users.reducer';
 import { ICustomers } from 'app/shared/model/customers.model';
 import { getEntities as getCustomers } from 'app/entities/customers/customers.reducer';
 import { IPosts } from 'app/shared/model/posts.model';
@@ -24,7 +22,6 @@ export const PostsUpdate = () => {
   const { id } = useParams<'id'>();
   const isNew = id === undefined;
 
-  const users = useAppSelector(state => state.users.entities);
   const customers = useAppSelector(state => state.customers.entities);
   const postsEntity = useAppSelector(state => state.posts.entity);
   const loading = useAppSelector(state => state.posts.loading);
@@ -41,7 +38,6 @@ export const PostsUpdate = () => {
       dispatch(getEntity(id));
     }
 
-    dispatch(getUsers({}));
     dispatch(getCustomers({}));
   }, []);
 
@@ -70,7 +66,6 @@ export const PostsUpdate = () => {
     const entity = {
       ...postsEntity,
       ...values,
-      pid: users.find(it => it.id.toString() === values.pid?.toString()),
       customers: customers.find(it => it.id.toString() === values.customers?.toString()),
     };
 
@@ -90,7 +85,6 @@ export const PostsUpdate = () => {
           tag: 'PRODUCE',
           ...postsEntity,
           availability: convertDateTimeFromServer(postsEntity.availability),
-          pid: postsEntity?.pid?.id,
           customers: postsEntity?.customers?.id,
         };
 
@@ -98,8 +92,8 @@ export const PostsUpdate = () => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="extracookiesApp.posts.home.createOrEditLabel" data-cy="PostsCreateUpdateHeading">
-            <Translate contentKey="extracookiesApp.posts.home.createOrEditLabel">Create or edit a Posts</Translate>
+          <h2 id="jhipsterApp.posts.home.createOrEditLabel" data-cy="PostsCreateUpdateHeading">
+            <Translate contentKey="jhipsterApp.posts.home.createOrEditLabel">Create or edit a Posts</Translate>
           </h2>
         </Col>
       </Row>
@@ -120,7 +114,7 @@ export const PostsUpdate = () => {
                 />
               ) : null}
               <ValidatedField
-                label={translate('extracookiesApp.posts.postId')}
+                label={translate('jhipsterApp.posts.postId')}
                 id="posts-postId"
                 name="postId"
                 data-cy="postId"
@@ -130,52 +124,36 @@ export const PostsUpdate = () => {
                   validate: v => isNumber(v) || translate('entity.validation.number'),
                 }}
               />
-              <ValidatedField label={translate('extracookiesApp.posts.price')} id="posts-price" name="price" data-cy="price" type="text" />
-              <ValidatedField label={translate('extracookiesApp.posts.title')} id="posts-title" name="title" data-cy="title" type="text" />
+              <ValidatedField label={translate('jhipsterApp.posts.price')} id="posts-price" name="price" data-cy="price" type="text" />
+              <ValidatedField label={translate('jhipsterApp.posts.title')} id="posts-title" name="title" data-cy="title" type="text" />
               <ValidatedField
-                label={translate('extracookiesApp.posts.location')}
+                label={translate('jhipsterApp.posts.location')}
                 id="posts-location"
                 name="location"
                 data-cy="location"
                 type="text"
               />
               <ValidatedField
-                label={translate('extracookiesApp.posts.availability')}
+                label={translate('jhipsterApp.posts.availability')}
                 id="posts-availability"
                 name="availability"
                 data-cy="availability"
                 type="datetime-local"
                 placeholder="YYYY-MM-DD HH:mm"
               />
-              <ValidatedField
-                label={translate('extracookiesApp.posts.rating')}
-                id="posts-rating"
-                name="rating"
-                data-cy="rating"
-                type="text"
-              />
-              <ValidatedField label={translate('extracookiesApp.posts.tag')} id="posts-tag" name="tag" data-cy="tag" type="select">
+              <ValidatedField label={translate('jhipsterApp.posts.rating')} id="posts-rating" name="rating" data-cy="rating" type="text" />
+              <ValidatedField label={translate('jhipsterApp.posts.tag')} id="posts-tag" name="tag" data-cy="tag" type="select">
                 {tagsValues.map(tags => (
                   <option value={tags} key={tags}>
-                    {translate('extracookiesApp.Tags.' + tags)}
+                    {translate('jhipsterApp.Tags.' + tags)}
                   </option>
                 ))}
-              </ValidatedField>
-              <ValidatedField id="posts-pid" name="pid" data-cy="pid" label={translate('extracookiesApp.posts.pid')} type="select">
-                <option value="" key="0" />
-                {users
-                  ? users.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
-                      </option>
-                    ))
-                  : null}
               </ValidatedField>
               <ValidatedField
                 id="posts-customers"
                 name="customers"
                 data-cy="customers"
-                label={translate('extracookiesApp.posts.customers')}
+                label={translate('jhipsterApp.posts.customers')}
                 type="select"
               >
                 <option value="" key="0" />

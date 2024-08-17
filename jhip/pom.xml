@@ -3,12 +3,12 @@
                              https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>rocks.zipcode</groupId>
-    <artifactId>extracookies</artifactId>
+    <groupId>zipcode.rocks</groupId>
+    <artifactId>jhipster</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Extracookies</name>
-    <description>Description for Extracookies</description>
+    <name>JHipster</name>
+    <description>Description for JHipster</description>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -31,7 +31,7 @@
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <start-class>rocks.zipcode.ExtracookiesApp</start-class>
+        <start-class>zipcode.rocks.JhipsterApp</start-class>
         <argLine>-Djava.security.egd=file:/dev/./urandom -Xmx1G</argLine>
         <m2e.apt.activation>jdt_apt</m2e.apt.activation>
         <run.addResources>false</run.addResources>
@@ -393,7 +393,7 @@
                             </platforms>
                         </from>
                         <to>
-                            <image>extracookies:latest</image>
+                            <image>jhipster:latest</image>
                         </to>
                         <container>
                             <entrypoint>
@@ -729,7 +729,7 @@
                         <defaultSchemaName/>
                         <username>${liquibase-plugin.username}</username>
                         <password>${liquibase-plugin.password}</password>
-                        <referenceUrl>hibernate:spring:rocks.zipcode.domain?dialect=${liquibase-plugin.hibernate-dialect}&amp;hibernate.physical_naming_strategy=org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
+                        <referenceUrl>hibernate:spring:zipcode.rocks.domain?dialect=${liquibase-plugin.hibernate-dialect}&amp;hibernate.physical_naming_strategy=org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
                         <verbose>true</verbose>
                         <logging>debug</logging>
                         <contexts>!test</contexts>
@@ -789,8 +789,8 @@
                 <profile.test>testdev</profile.test>
                 <liquibase-plugin.hibernate-dialect>org.hibernate.dialect.H2Dialect</liquibase-plugin.hibernate-dialect>
                 <liquibase-plugin.driver>org.h2.Driver</liquibase-plugin.driver>
-                <liquibase-plugin.url>jdbc:h2:file:${project.build.directory}/h2db/db/extracookies</liquibase-plugin.url>
-                <liquibase-plugin.username>extracookies</liquibase-plugin.username>
+                <liquibase-plugin.url>jdbc:h2:file:${project.build.directory}/h2db/db/jhipster</liquibase-plugin.url>
+                <liquibase-plugin.username>jhipster</liquibase-plugin.username>
                 <liquibase-plugin.password/>
             </properties>
             <dependencies>
@@ -811,7 +811,7 @@
                         <artifactId>maven-compiler-plugin</artifactId>
                         <configuration>
                             <testExcludes>
-                                <testExclude>rocks/zipcode/config/MysqlTestContainer.java</testExclude>
+                                <testExclude>zipcode/rocks/config/MysqlTestContainer.java</testExclude>
                             </testExcludes>
                         </configuration>
                     </plugin>
@@ -916,7 +916,7 @@
                 <profile.test>testprod</profile.test>
                 <liquibase-plugin.hibernate-dialect>org.hibernate.dialect.MySQL8Dialect</liquibase-plugin.hibernate-dialect>
                 <liquibase-plugin.driver>com.mysql.cj.jdbc.Driver</liquibase-plugin.driver>
-                <liquibase-plugin.url>jdbc:mysql://localhost:3306/extracookies</liquibase-plugin.url>
+                <liquibase-plugin.url>jdbc:mysql://localhost:3306/jhipster</liquibase-plugin.url>
                 <liquibase-plugin.username>root</liquibase-plugin.username>
                 <liquibase-plugin.password/>
             </properties>

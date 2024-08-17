@@ -44,8 +44,8 @@ export const CustomersDeleteDialog = () => {
       <ModalHeader toggle={handleClose} data-cy="customersDeleteDialogHeading">
         <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
       </ModalHeader>
-      <ModalBody id="extracookiesApp.customers.delete.question">
-        <Translate contentKey="extracookiesApp.customers.delete.question" interpolate={{ id: customersEntity.id }}>
+      <ModalBody id="jhipsterApp.customers.delete.question">
+        <Translate contentKey="jhipsterApp.customers.delete.question" interpolate={{ id: customersEntity.id }}>
           Are you sure you want to delete this Customers?
         </Translate>
       </ModalBody>

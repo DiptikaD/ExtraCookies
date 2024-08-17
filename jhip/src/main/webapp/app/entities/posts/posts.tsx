@@ -104,16 +104,16 @@ export const Posts = () => {
   return (
     <div>
       <h2 id="posts-heading" data-cy="PostsHeading">
-        <Translate contentKey="extracookiesApp.posts.home.title">Posts</Translate>
+        <Translate contentKey="jhipsterApp.posts.home.title">Posts</Translate>
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
-            <Translate contentKey="extracookiesApp.posts.home.refreshListLabel">Refresh List</Translate>
+            <Translate contentKey="jhipsterApp.posts.home.refreshListLabel">Refresh List</Translate>
           </Button>
           <Link to="/posts/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="extracookiesApp.posts.home.createLabel">Create new Posts</Translate>
+            <Translate contentKey="jhipsterApp.posts.home.createLabel">Create new Posts</Translate>
           </Link>
         </div>
       </h2>
@@ -129,41 +129,37 @@ export const Posts = () => {
               <thead>
                 <tr>
                   <th className="hand" onClick={sort('id')}>
-                    <Translate contentKey="extracookiesApp.posts.id">ID</Translate> <FontAwesomeIcon icon={getSortIconByFieldName('id')} />
+                    <Translate contentKey="jhipsterApp.posts.id">ID</Translate> <FontAwesomeIcon icon={getSortIconByFieldName('id')} />
                   </th>
                   <th className="hand" onClick={sort('postId')}>
-                    <Translate contentKey="extracookiesApp.posts.postId">Post Id</Translate>{' '}
+                    <Translate contentKey="jhipsterApp.posts.postId">Post Id</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('postId')} />
                   </th>
                   <th className="hand" onClick={sort('price')}>
-                    <Translate contentKey="extracookiesApp.posts.price">Price</Translate>{' '}
+                    <Translate contentKey="jhipsterApp.posts.price">Price</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('price')} />
                   </th>
                   <th className="hand" onClick={sort('title')}>
-                    <Translate contentKey="extracookiesApp.posts.title">Title</Translate>{' '}
+                    <Translate contentKey="jhipsterApp.posts.title">Title</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('title')} />
                   </th>
                   <th className="hand" onClick={sort('location')}>
-                    <Translate contentKey="extracookiesApp.posts.location">Location</Translate>{' '}
+                    <Translate contentKey="jhipsterApp.posts.location">Location</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('location')} />
                   </th>
                   <th className="hand" onClick={sort('availability')}>
-                    <Translate contentKey="extracookiesApp.posts.availability">Availability</Translate>{' '}
+                    <Translate contentKey="jhipsterApp.posts.availability">Availability</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('availability')} />
                   </th>
                   <th className="hand" onClick={sort('rating')}>
-                    <Translate contentKey="extracookiesApp.posts.rating">Rating</Translate>{' '}
+                    <Translate contentKey="jhipsterApp.posts.rating">Rating</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('rating')} />
                   </th>
                   <th className="hand" onClick={sort('tag')}>
-                    <Translate contentKey="extracookiesApp.posts.tag">Tag</Translate>{' '}
-                    <FontAwesomeIcon icon={getSortIconByFieldName('tag')} />
+                    <Translate contentKey="jhipsterApp.posts.tag">Tag</Translate> <FontAwesomeIcon icon={getSortIconByFieldName('tag')} />
                   </th>
                   <th>
-                    <Translate contentKey="extracookiesApp.posts.pid">Pid</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th>
-                    <Translate contentKey="extracookiesApp.posts.customers">Customers</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="jhipsterApp.posts.customers">Customers</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -183,9 +179,8 @@ export const Posts = () => {
                     <td>{posts.availability ? <TextFormat type="date" value={posts.availability} format={APP_DATE_FORMAT} /> : null}</td>
                     <td>{posts.rating}</td>
                     <td>
-                      <Translate contentKey={`extracookiesApp.Tags.${posts.tag}`} />
+                      <Translate contentKey={`jhipsterApp.Tags.${posts.tag}`} />
                     </td>
-                    <td>{posts.pid ? <Link to={`/users/${posts.pid.id}`}>{posts.pid.id}</Link> : ''}</td>
                     <td>{posts.customers ? <Link to={`/customers/${posts.customers.id}`}>{posts.customers.id}</Link> : ''}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">
@@ -221,7 +216,7 @@ export const Posts = () => {
           ) : (
             !loading && (
               <div className="alert alert-warning">
-                <Translate contentKey="extracookiesApp.posts.home.notFound">No Posts found</Translate>
+                <Translate contentKey="jhipsterApp.posts.home.notFound">No Posts found</Translate>
               </div>
             )
           )}

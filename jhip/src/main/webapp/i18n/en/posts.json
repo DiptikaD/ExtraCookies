@@ -1,5 +1,5 @@
 {
-  "extracookiesApp": {
+  "jhipsterApp": {
     "posts": {
       "home": {
         "title": "Posts",
@@ -25,7 +25,6 @@
       "availability": "Availability",
       "rating": "Rating",
       "tag": "Tag",
-      "pid": "Pid",
       "customers": "Customers"
     }
   }

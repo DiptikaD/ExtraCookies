@@ -66,16 +66,16 @@ export const Customers = () => {
   return (
     <div>
       <h2 id="customers-heading" data-cy="CustomersHeading">
-        <Translate contentKey="extracookiesApp.customers.home.title">Customers</Translate>
+        <Translate contentKey="jhipsterApp.customers.home.title">Customers</Translate>
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
-            <Translate contentKey="extracookiesApp.customers.home.refreshListLabel">Refresh List</Translate>
+            <Translate contentKey="jhipsterApp.customers.home.refreshListLabel">Refresh List</Translate>
           </Button>
           <Link to="/customers/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="extracookiesApp.customers.home.createLabel">Create new Customers</Translate>
+            <Translate contentKey="jhipsterApp.customers.home.createLabel">Create new Customers</Translate>
           </Link>
         </div>
       </h2>
@@ -85,27 +85,25 @@ export const Customers = () => {
             <thead>
               <tr>
                 <th className="hand" onClick={sort('id')}>
-                  <Translate contentKey="extracookiesApp.customers.id">ID</Translate>{' '}
-                  <FontAwesomeIcon icon={getSortIconByFieldName('id')} />
+                  <Translate contentKey="jhipsterApp.customers.id">ID</Translate> <FontAwesomeIcon icon={getSortIconByFieldName('id')} />
                 </th>
                 <th className="hand" onClick={sort('uid')}>
-                  <Translate contentKey="extracookiesApp.customers.uid">Uid</Translate>{' '}
-                  <FontAwesomeIcon icon={getSortIconByFieldName('uid')} />
+                  <Translate contentKey="jhipsterApp.customers.uid">Uid</Translate> <FontAwesomeIcon icon={getSortIconByFieldName('uid')} />
                 </th>
                 <th className="hand" onClick={sort('email')}>
-                  <Translate contentKey="extracookiesApp.customers.email">Email</Translate>{' '}
+                  <Translate contentKey="jhipsterApp.customers.email">Email</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('email')} />
                 </th>
                 <th className="hand" onClick={sort('userName')}>
-                  <Translate contentKey="extracookiesApp.customers.userName">User Name</Translate>{' '}
+                  <Translate contentKey="jhipsterApp.customers.userName">User Name</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('userName')} />
                 </th>
                 <th className="hand" onClick={sort('password')}>
-                  <Translate contentKey="extracookiesApp.customers.password">Password</Translate>{' '}
+                  <Translate contentKey="jhipsterApp.customers.password">Password</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('password')} />
                 </th>
                 <th className="hand" onClick={sort('profilePicIUrl')}>
-                  <Translate contentKey="extracookiesApp.customers.profilePicIUrl">Profile Pic I Url</Translate>{' '}
+                  <Translate contentKey="jhipsterApp.customers.profilePicIUrl">Profile Pic I Url</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('profilePicIUrl')} />
                 </th>
                 <th />
@@ -158,7 +156,7 @@ export const Customers = () => {
         ) : (
           !loading && (
             <div className="alert alert-warning">
-              <Translate contentKey="extracookiesApp.customers.home.notFound">No Customers found</Translate>
+              <Translate contentKey="jhipsterApp.customers.home.notFound">No Customers found</Translate>
             </div>
           )
         )}

@@ -15,7 +15,7 @@
 
 spring:
   application:
-    name: extracookies
+    name: jhipster
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
   liquibase:
     contexts: test
@@ -36,13 +36,13 @@ spring:
           authorities-claim-name: auth
   task:
     execution:
-      thread-name-prefix: extracookies-task-
+      thread-name-prefix: jhipster-task-
       pool:
         core-size: 1
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: extracookies-scheduling-
+      thread-name-prefix: jhipster-scheduling-
       pool:
         size: 20
   thymeleaf:
@@ -59,9 +59,9 @@ server:
 # ===================================================================
 jhipster:
   clientApp:
-    name: 'extracookiesApp'
+    name: 'jhipsterApp'
   mail:
-    from: extracookies@localhost.com
+    from: jhipster@localhost.com
     base-url: http://127.0.0.1:8080
   logging:
     # To test json console appender
@@ -75,7 +75,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-        base64-secret: MzU3ODQxYTA2NmEzZmRlOGIyMzdlMmVlOTRhMzkyMTJmNmRjYzI2ODQ3NTI1YjY1OTk5Y2I3ZDRjZWM4YWU2NjU2MTAzNDE3NTcyYzNhMDA4YmI3OWFjYzQ2YmMxNjk0NGY3Y2QwZTk2MWE3ZGFkZDIwZmM5MTYyMGVmYmI1MzU=
+        base64-secret: ZGJlNzIwNTMzNTllY2E1NDQ4YWZkZGZjMjM1NmRkZjk3YTUxZTJhMjgzYTBmZmU4MmM2YzNmZWM5ODEyZmIxZmQwYWY0ZDY5OTk2MjZjNGI0N2IyOGNjMGI3MzhkNTRhYTk5ZGYyOTU5NTMwOGFhMTExNTNiYjllMWIzN2MzOWQ=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 86400

@@ -1,8 +1,8 @@
 {
   "annotations": {
-    "changelogDate": "20240817182307"
+    "changelogDate": "20240817192812"
   },
-  "applications": ["extracookies"],
+  "applications": ["jhipster"],
   "fields": [
     {
       "fieldName": "postId",
@@ -32,7 +32,7 @@
     {
       "fieldName": "tag",
       "fieldType": "Tags",
-      "fieldValues": "PRODUCE,READYMADE,OTHER"
+      "fieldValues": "PRODUCE,READY_MADE,OTHER"
     }
   ],
   "name": "Posts",
