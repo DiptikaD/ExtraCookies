@@ -1,0 +1,32 @@
+{
+  "extracookiesApp": {
+    "posts": {
+      "home": {
+        "title": "Posts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Posts",
+        "createOrEditLabel": "Create or edit a Posts",
+        "notFound": "No Posts found"
+      },
+      "created": "A new Posts is created with identifier {{ param }}",
+      "updated": "A Posts is updated with identifier {{ param }}",
+      "deleted": "A Posts is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Posts {{ id }}?"
+      },
+      "detail": {
+        "title": "Posts"
+      },
+      "id": "ID",
+      "postId": "Post Id",
+      "price": "Price",
+      "title": "Title",
+      "location": "Location",
+      "availability": "Availability",
+      "rating": "Rating",
+      "tag": "Tag",
+      "pid": "Pid",
+      "customers": "Customers"
+    }
+  }
+}

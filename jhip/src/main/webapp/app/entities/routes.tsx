@@ -3,6 +3,9 @@ import { Route } from 'react-router-dom';
 
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 
+import Users from './users';
+import Posts from './posts';
+import Customers from './customers';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -10,6 +13,9 @@ export default () => {
     <div>
       <ErrorBoundaryRoutes>
         {/* prettier-ignore */}
+        <Route path="users/*" element={<Users />} />
+        <Route path="posts/*" element={<Posts />} />
+        <Route path="customers/*" element={<Customers />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>

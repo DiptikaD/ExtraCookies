@@ -1,0 +1,42 @@
+{
+  "annotations": {
+    "changelogDate": "20240817182307"
+  },
+  "applications": ["extracookies"],
+  "fields": [
+    {
+      "fieldName": "postId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "availability",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "rating",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "tag",
+      "fieldType": "Tags",
+      "fieldValues": "PRODUCE,READYMADE,OTHER"
+    }
+  ],
+  "name": "Posts",
+  "pagination": "infinite-scroll",
+  "relationships": [],
+  "searchEngine": "no"
+}

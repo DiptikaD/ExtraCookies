@@ -1,59 +1,64 @@
 application {
-  config {
-    applicationType monolith
-    authenticationType jwt
-    baseName extracookies
-    buildTool maven
-    cacheProvider no
-    clientFramework react
-    clientTheme minty
-    clientThemeVariant primary
-    creationTimestamp 1723916727493
-    databaseType sql
-    devDatabaseType h2Disk
-    enableHibernateCache false
-    enableSwaggerCodegen false
-    enableTranslation true
-    jhipsterVersion "8.6.0"
-    jwtSecretKey "MzU3ODQxYTA2NmEzZmRlOGIyMzdlMmVlOTRhMzkyMTJmNmRjYzI2ODQ3NTI1YjY1OTk5Y2I3ZDRjZWM4YWU2NjU2MTAzNDE3NTcyYzNhMDA4YmI3OWFjYzQ2YmMxNjk0NGY3Y2QwZTk2MWE3ZGFkZDIwZmM5MTYyMGVmYmI1MzU="
-    languages [en]
-    messageBroker false
-    microfrontends []
-    nativeLanguage en
-    packageName rocks.zipcode
-    prodDatabaseType mysql
-    reactive false
-    searchEngine false
-    serviceDiscoveryType false
-    testFrameworks []
-    websocket false
-    withAdminUi true
-  }
+
+    config {
+        applicationType monolith
+        authenticationType jwt
+        baseName extracookies
+        buildTool maven
+        cacheProvider no
+        clientFramework react
+        clientTheme minty
+        clientThemeVariant primary
+        creationTimestamp 1723916727493
+        databaseType sql
+        devDatabaseType h2Disk
+        enableHibernateCache false
+        enableSwaggerCodegen false
+        enableTranslation true
+        jhipsterVersion "8.6.0"
+        jwtSecretKey "MzU3ODQxYTA2NmEzZmRlOGIyMzdlMmVlOTRhMzkyMTJmNmRjYzI2ODQ3NTI1YjY1OTk5Y2I3ZDRjZWM4YWU2NjU2MTAzNDE3NTcyYzNhMDA4YmI3OWFjYzQ2YmMxNjk0NGY3Y2QwZTk2MWE3ZGFkZDIwZmM5MTYyMGVmYmI1MzU="
+        languages [en]
+        messageBroker false
+        microfrontends []
+        nativeLanguage en
+        packageName rocks.zipcode
+        prodDatabaseType mysql
+        reactive false
+        searchEngine false
+        serviceDiscoveryType false
+        testFrameworks []
+        websocket false
+        withAdminUi true
+    }
 
     entities *
+
 }
-entity Users {
+
+entity Customers {
     uid Long required
     email String
     userName String required
-    passWord String required
+    password String required
     profilePicIUrl String
 }
 
 enum Tags {
-    PRODUCE, READY-MADE, OTHER
+    PRODUCE, READY_MADE, OTHER
 }
 
 entity Posts {
-    pid Long required
+    postId Long required
     price Double
-    title String required
-    location String required
+    title String
+    location String
     availability Date
     rating Integer
     tag Tags
 }
 
 relationship OneToMany {
-    Users{uid} to Posts{pid}
+    Customers{uid} to Posts
 }
+
+paginate Posts with infinite-scroll

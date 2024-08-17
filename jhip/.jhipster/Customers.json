@@ -1,0 +1,41 @@
+{
+  "annotations": {
+    "changelogDate": "20240817183818"
+  },
+  "applications": ["extracookies"],
+  "fields": [
+    {
+      "fieldName": "uid",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "password",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "profilePicIUrl",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Customers",
+  "relationships": [
+    {
+      "otherEntityName": "posts",
+      "relationshipName": "uid",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}
