@@ -1,0 +1,34 @@
+application {
+  config {
+    baseName extraCookies,
+    packageName rocks.zipcode,
+    applicationType monolith,
+    prodDatabaseType mySQL,
+  }
+  entities *
+}
+entity Users {
+  uid long required
+  email String
+  userName String required
+  passWord String required
+  profilePicIUrl String
+}
+
+enum Tags {
+    PRODUCE, READY-MADE, OTHER
+}
+
+entity Posts {
+  pid long required
+  price double
+  title String required
+  location String required
+  availability Date
+  rating int
+  tag Tags
+}
+
+relationship OneToMany {
+  Users{uid} to Posts{pid}
+}
