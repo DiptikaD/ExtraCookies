@@ -3,12 +3,12 @@ application {
     baseName extraCookies,
     packageName rocks.zipcode,
     applicationType monolith,
-    prodDatabaseType mySQL,
+    prodDatabaseType mysql,
   }
   entities *
 }
 entity Users {
-  uid long required
+  uid Long required
   email String
   userName String required
   passWord String required
@@ -20,12 +20,12 @@ enum Tags {
 }
 
 entity Posts {
-  pid long required
-  price double
+  pid Long required
+  price Double
   title String required
   location String required
   availability Date
-  rating int
+  rating Integer
   tag Tags
 }
 
