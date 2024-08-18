@@ -17,7 +17,7 @@ export const Home = () => {
       </Col>
       <Col md="3">
         <h1 className="display-4">
-          <Translate contentKey="home.title">Welcome, Java Hipster!</Translate>
+          <Translate contentKey="home.title"></Translate>
         </h1>
         <p className="lead">
           <Translate contentKey="home.subtitle">This is your homepage</Translate>
