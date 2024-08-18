@@ -12,10 +12,10 @@ export const Home = () => {
 
   return (
     <Row>
-      <Col md="3" className="pad">
+      <Col md="1" className="pad">
         <span className="hipster rounded" />
       </Col>
-      <Col md="9">
+      <Col md="3">
         <h1 className="display-4">
           <Translate contentKey="home.title">Welcome, Java Hipster!</Translate>
         </h1>
