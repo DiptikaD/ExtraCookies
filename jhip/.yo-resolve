@@ -1,0 +1,7 @@
+src/main/webapp/content/images/jhipster_family_member_0_head-256.png skip
+src/main/webapp/content/images/logo-jhipster.png skip
+webpack/logo-jhipster.png skip
+src/main/webapp/app/routes.tsx skip
+src/main/webapp/app/modules/home/home.tsx skip
+src/main/webapp/app/modules/home/home.scss skip
+src/main/webapp/i18n/en/home.json skip
