@@ -32,6 +32,7 @@ import zipcode.rocks.web.rest.vm.LoginVM;
  */
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000/")
 public class AuthenticateController {
 
     private static final Logger log = LoggerFactory.getLogger(AuthenticateController.class);

@@ -8,6 +8,9 @@ const HomeRoutes = () => (
   <div>
     <ErrorBoundaryRoutes>
       <Route path="mainApp" element={<MainApp />} />
+         <p className="lead">
+          This is your homepage
+        </p>
     </ErrorBoundaryRoutes>
   </div>
 );
