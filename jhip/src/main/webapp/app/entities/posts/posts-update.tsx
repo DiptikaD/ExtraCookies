@@ -8,8 +8,6 @@ import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateT
 import { mapIdList } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
-import { ICustomers } from 'app/shared/model/customers.model';
-import { getEntities as getCustomers } from 'app/entities/customers/customers.reducer';
 import { IPosts } from 'app/shared/model/posts.model';
 import { Tags } from 'app/shared/model/enumerations/tags.model';
 import { getEntity, updateEntity, createEntity, reset } from './posts.reducer';
@@ -22,7 +20,6 @@ export const PostsUpdate = () => {
   const { id } = useParams<'id'>();
   const isNew = id === undefined;
 
-  const customers = useAppSelector(state => state.customers.entities);
   const postsEntity = useAppSelector(state => state.posts.entity);
   const loading = useAppSelector(state => state.posts.loading);
   const updating = useAppSelector(state => state.posts.updating);
@@ -37,8 +34,6 @@ export const PostsUpdate = () => {
     if (!isNew) {
       dispatch(getEntity(id));
     }
-
-    dispatch(getCustomers({}));
   }, []);
 
   useEffect(() => {
@@ -52,21 +47,14 @@ export const PostsUpdate = () => {
     if (values.id !== undefined && typeof values.id !== 'number') {
       values.id = Number(values.id);
     }
-    if (values.postId !== undefined && typeof values.postId !== 'number') {
-      values.postId = Number(values.postId);
-    }
     if (values.price !== undefined && typeof values.price !== 'number') {
       values.price = Number(values.price);
     }
     values.availability = convertDateTimeToServer(values.availability);
-    if (values.rating !== undefined && typeof values.rating !== 'number') {
-      values.rating = Number(values.rating);
-    }
 
     const entity = {
       ...postsEntity,
       ...values,
-      customers: customers.find(it => it.id.toString() === values.customers?.toString()),
     };
 
     if (isNew) {
@@ -85,7 +73,6 @@ export const PostsUpdate = () => {
           tag: 'PRODUCE',
           ...postsEntity,
           availability: convertDateTimeFromServer(postsEntity.availability),
-          customers: postsEntity?.customers?.id,
         };
 
   return (
@@ -113,17 +100,6 @@ export const PostsUpdate = () => {
                   validate={{ required: true }}
                 />
               ) : null}
-              <ValidatedField
-                label={translate('jhipsterApp.posts.postId')}
-                id="posts-postId"
-                name="postId"
-                data-cy="postId"
-                type="text"
-                validate={{
-                  required: { value: true, message: translate('entity.validation.required') },
-                  validate: v => isNumber(v) || translate('entity.validation.number'),
-                }}
-              />
               <ValidatedField label={translate('jhipsterApp.posts.price')} id="posts-price" name="price" data-cy="price" type="text" />
               <ValidatedField label={translate('jhipsterApp.posts.title')} id="posts-title" name="title" data-cy="title" type="text" />
               <ValidatedField
@@ -132,6 +108,9 @@ export const PostsUpdate = () => {
                 name="location"
                 data-cy="location"
                 type="text"
+                validate={{
+                  required: { value: true, message: translate('entity.validation.required') },
+                }}
               />
               <ValidatedField
                 label={translate('jhipsterApp.posts.availability')}
@@ -141,29 +120,12 @@ export const PostsUpdate = () => {
                 type="datetime-local"
                 placeholder="YYYY-MM-DD HH:mm"
               />
-              <ValidatedField label={translate('jhipsterApp.posts.rating')} id="posts-rating" name="rating" data-cy="rating" type="text" />
               <ValidatedField label={translate('jhipsterApp.posts.tag')} id="posts-tag" name="tag" data-cy="tag" type="select">
                 {tagsValues.map(tags => (
                   <option value={tags} key={tags}>
                     {translate('jhipsterApp.Tags.' + tags)}
                   </option>
                 ))}
-              </ValidatedField>
-              <ValidatedField
-                id="posts-customers"
-                name="customers"
-                data-cy="customers"
-                label={translate('jhipsterApp.posts.customers')}
-                type="select"
-              >
-                <option value="" key="0" />
-                {customers
-                  ? customers.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
-                      </option>
-                    ))
-                  : null}
               </ValidatedField>
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/posts" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />

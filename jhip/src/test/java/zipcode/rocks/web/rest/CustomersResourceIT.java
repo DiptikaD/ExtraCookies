@@ -32,9 +32,6 @@ import zipcode.rocks.repository.CustomersRepository;
 @WithMockUser
 class CustomersResourceIT {
 
-    private static final Long DEFAULT_UID = 1L;
-    private static final Long UPDATED_UID = 2L;
-
     private static final String DEFAULT_EMAIL = "AAAAAAAAAA";
     private static final String UPDATED_EMAIL = "BBBBBBBBBB";
 
@@ -77,7 +74,6 @@ class CustomersResourceIT {
      */
     public static Customers createEntity(EntityManager em) {
         Customers customers = new Customers()
-            .uid(DEFAULT_UID)
             .email(DEFAULT_EMAIL)
             .userName(DEFAULT_USER_NAME)
             .password(DEFAULT_PASSWORD)
@@ -93,7 +89,6 @@ class CustomersResourceIT {
      */
     public static Customers createUpdatedEntity(EntityManager em) {
         Customers customers = new Customers()
-            .uid(UPDATED_UID)
             .email(UPDATED_EMAIL)
             .userName(UPDATED_USER_NAME)
             .password(UPDATED_PASSWORD)
@@ -155,22 +150,6 @@ class CustomersResourceIT {
 
     @Test
     @Transactional
-    void checkUidIsRequired() throws Exception {
-        long databaseSizeBeforeTest = getRepositoryCount();
-        // set the field null
-        customers.setUid(null);
-
-        // Create the Customers, which fails.
-
-        restCustomersMockMvc
-            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(om.writeValueAsBytes(customers)))
-            .andExpect(status().isBadRequest());
-
-        assertSameRepositoryCount(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     void checkUserNameIsRequired() throws Exception {
         long databaseSizeBeforeTest = getRepositoryCount();
         // set the field null
@@ -213,7 +192,6 @@ class CustomersResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(customers.getId().intValue())))
-            .andExpect(jsonPath("$.[*].uid").value(hasItem(DEFAULT_UID.intValue())))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL)))
             .andExpect(jsonPath("$.[*].userName").value(hasItem(DEFAULT_USER_NAME)))
             .andExpect(jsonPath("$.[*].password").value(hasItem(DEFAULT_PASSWORD)))
@@ -232,7 +210,6 @@ class CustomersResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(customers.getId().intValue()))
-            .andExpect(jsonPath("$.uid").value(DEFAULT_UID.intValue()))
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL))
             .andExpect(jsonPath("$.userName").value(DEFAULT_USER_NAME))
             .andExpect(jsonPath("$.password").value(DEFAULT_PASSWORD))
@@ -259,7 +236,6 @@ class CustomersResourceIT {
         // Disconnect from session so that the updates on updatedCustomers are not directly saved in db
         em.detach(updatedCustomers);
         updatedCustomers
-            .uid(UPDATED_UID)
             .email(UPDATED_EMAIL)
             .userName(UPDATED_USER_NAME)
             .password(UPDATED_PASSWORD)
@@ -341,7 +317,7 @@ class CustomersResourceIT {
         Customers partialUpdatedCustomers = new Customers();
         partialUpdatedCustomers.setId(customers.getId());
 
-        partialUpdatedCustomers.userName(UPDATED_USER_NAME).profilePicIUrl(UPDATED_PROFILE_PIC_I_URL);
+        partialUpdatedCustomers.password(UPDATED_PASSWORD);
 
         restCustomersMockMvc
             .perform(
@@ -373,7 +349,6 @@ class CustomersResourceIT {
         partialUpdatedCustomers.setId(customers.getId());
 
         partialUpdatedCustomers
-            .uid(UPDATED_UID)
             .email(UPDATED_EMAIL)
             .userName(UPDATED_USER_NAME)
             .password(UPDATED_PASSWORD)

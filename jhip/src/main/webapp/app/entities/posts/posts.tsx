@@ -131,10 +131,6 @@ export const Posts = () => {
                   <th className="hand" onClick={sort('id')}>
                     <Translate contentKey="jhipsterApp.posts.id">ID</Translate> <FontAwesomeIcon icon={getSortIconByFieldName('id')} />
                   </th>
-                  <th className="hand" onClick={sort('postId')}>
-                    <Translate contentKey="jhipsterApp.posts.postId">Post Id</Translate>{' '}
-                    <FontAwesomeIcon icon={getSortIconByFieldName('postId')} />
-                  </th>
                   <th className="hand" onClick={sort('price')}>
                     <Translate contentKey="jhipsterApp.posts.price">Price</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('price')} />
@@ -151,15 +147,8 @@ export const Posts = () => {
                     <Translate contentKey="jhipsterApp.posts.availability">Availability</Translate>{' '}
                     <FontAwesomeIcon icon={getSortIconByFieldName('availability')} />
                   </th>
-                  <th className="hand" onClick={sort('rating')}>
-                    <Translate contentKey="jhipsterApp.posts.rating">Rating</Translate>{' '}
-                    <FontAwesomeIcon icon={getSortIconByFieldName('rating')} />
-                  </th>
                   <th className="hand" onClick={sort('tag')}>
                     <Translate contentKey="jhipsterApp.posts.tag">Tag</Translate> <FontAwesomeIcon icon={getSortIconByFieldName('tag')} />
-                  </th>
-                  <th>
-                    <Translate contentKey="jhipsterApp.posts.customers">Customers</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -172,16 +161,13 @@ export const Posts = () => {
                         {posts.id}
                       </Button>
                     </td>
-                    <td>{posts.postId}</td>
                     <td>{posts.price}</td>
                     <td>{posts.title}</td>
                     <td>{posts.location}</td>
                     <td>{posts.availability ? <TextFormat type="date" value={posts.availability} format={APP_DATE_FORMAT} /> : null}</td>
-                    <td>{posts.rating}</td>
                     <td>
                       <Translate contentKey={`jhipsterApp.Tags.${posts.tag}`} />
                     </td>
-                    <td>{posts.customers ? <Link to={`/customers/${posts.customers.id}`}>{posts.customers.id}</Link> : ''}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`/posts/${posts.id}`} color="info" size="sm" data-cy="entityDetailsButton">

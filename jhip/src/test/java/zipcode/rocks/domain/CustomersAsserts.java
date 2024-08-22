@@ -47,7 +47,6 @@ public class CustomersAsserts {
     public static void assertCustomersUpdatableFieldsEquals(Customers expected, Customers actual) {
         assertThat(expected)
             .as("Verify Customers relevant properties")
-            .satisfies(e -> assertThat(e.getUid()).as("check uid").isEqualTo(actual.getUid()))
             .satisfies(e -> assertThat(e.getEmail()).as("check email").isEqualTo(actual.getEmail()))
             .satisfies(e -> assertThat(e.getUserName()).as("check userName").isEqualTo(actual.getUserName()))
             .satisfies(e -> assertThat(e.getPassword()).as("check password").isEqualTo(actual.getPassword()))

@@ -18,12 +18,10 @@
         "title": "Customers"
       },
       "id": "ID",
-      "uid": "Uid",
       "email": "Email",
       "userName": "User Name",
       "password": "Password",
-      "profilePicIUrl": "Profile Pic I Url",
-      "uid": "Uid"
+      "profilePicIUrl": "Profile Pic I Url"
     }
   }
 }

@@ -1,6 +1,5 @@
 package zipcode.rocks.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
@@ -22,32 +21,22 @@ public class Posts implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @NotNull
-    @Column(name = "post_id", nullable = false)
-    private Long postId;
-
     @Column(name = "price")
     private Double price;
 
     @Column(name = "title")
     private String title;
 
-    @Column(name = "location")
+    @NotNull
+    @Column(name = "location", nullable = false)
     private String location;
 
     @Column(name = "availability")
     private Instant availability;
 
-    @Column(name = "rating")
-    private Integer rating;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "tag")
     private Tags tag;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "uids" }, allowSetters = true)
-    private Customers customers;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -62,19 +51,6 @@ public class Posts implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getPostId() {
-        return this.postId;
-    }
-
-    public Posts postId(Long postId) {
-        this.setPostId(postId);
-        return this;
-    }
-
-    public void setPostId(Long postId) {
-        this.postId = postId;
     }
 
     public Double getPrice() {
@@ -129,19 +105,6 @@ public class Posts implements Serializable {
         this.availability = availability;
     }
 
-    public Integer getRating() {
-        return this.rating;
-    }
-
-    public Posts rating(Integer rating) {
-        this.setRating(rating);
-        return this;
-    }
-
-    public void setRating(Integer rating) {
-        this.rating = rating;
-    }
-
     public Tags getTag() {
         return this.tag;
     }
@@ -153,19 +116,6 @@ public class Posts implements Serializable {
 
     public void setTag(Tags tag) {
         this.tag = tag;
-    }
-
-    public Customers getCustomers() {
-        return this.customers;
-    }
-
-    public void setCustomers(Customers customers) {
-        this.customers = customers;
-    }
-
-    public Posts customers(Customers customers) {
-        this.setCustomers(customers);
-        return this;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
@@ -192,12 +142,10 @@ public class Posts implements Serializable {
     public String toString() {
         return "Posts{" +
             "id=" + getId() +
-            ", postId=" + getPostId() +
             ", price=" + getPrice() +
             ", title='" + getTitle() + "'" +
             ", location='" + getLocation() + "'" +
             ", availability='" + getAvailability() + "'" +
-            ", rating=" + getRating() +
             ", tag='" + getTag() + "'" +
             "}";
     }

@@ -87,9 +87,6 @@ export const Customers = () => {
                 <th className="hand" onClick={sort('id')}>
                   <Translate contentKey="jhipsterApp.customers.id">ID</Translate> <FontAwesomeIcon icon={getSortIconByFieldName('id')} />
                 </th>
-                <th className="hand" onClick={sort('uid')}>
-                  <Translate contentKey="jhipsterApp.customers.uid">Uid</Translate> <FontAwesomeIcon icon={getSortIconByFieldName('uid')} />
-                </th>
                 <th className="hand" onClick={sort('email')}>
                   <Translate contentKey="jhipsterApp.customers.email">Email</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('email')} />
@@ -117,7 +114,6 @@ export const Customers = () => {
                       {customers.id}
                     </Button>
                   </td>
-                  <td>{customers.uid}</td>
                   <td>{customers.email}</td>
                   <td>{customers.userName}</td>
                   <td>{customers.password}</td>

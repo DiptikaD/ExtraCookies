@@ -5,11 +5,6 @@
   "applications": ["jhipster"],
   "fields": [
     {
-      "fieldName": "uid",
-      "fieldType": "Long",
-      "fieldValidateRules": ["required"]
-    },
-    {
       "fieldName": "email",
       "fieldType": "String"
     },
@@ -29,13 +24,6 @@
     }
   ],
   "name": "Customers",
-  "relationships": [
-    {
-      "otherEntityName": "posts",
-      "relationshipName": "uid",
-      "relationshipSide": "left",
-      "relationshipType": "one-to-many"
-    }
-  ],
+  "relationships": [],
   "searchEngine": "no"
 }

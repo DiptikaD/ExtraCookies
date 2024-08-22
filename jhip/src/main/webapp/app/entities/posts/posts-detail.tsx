@@ -33,12 +33,6 @@ export const PostsDetail = () => {
           </dt>
           <dd>{postsEntity.id}</dd>
           <dt>
-            <span id="postId">
-              <Translate contentKey="jhipsterApp.posts.postId">Post Id</Translate>
-            </span>
-          </dt>
-          <dd>{postsEntity.postId}</dd>
-          <dt>
             <span id="price">
               <Translate contentKey="jhipsterApp.posts.price">Price</Translate>
             </span>
@@ -63,21 +57,11 @@ export const PostsDetail = () => {
           </dt>
           <dd>{postsEntity.availability ? <TextFormat value={postsEntity.availability} type="date" format={APP_DATE_FORMAT} /> : null}</dd>
           <dt>
-            <span id="rating">
-              <Translate contentKey="jhipsterApp.posts.rating">Rating</Translate>
-            </span>
-          </dt>
-          <dd>{postsEntity.rating}</dd>
-          <dt>
             <span id="tag">
               <Translate contentKey="jhipsterApp.posts.tag">Tag</Translate>
             </span>
           </dt>
           <dd>{postsEntity.tag}</dd>
-          <dt>
-            <Translate contentKey="jhipsterApp.posts.customers">Customers</Translate>
-          </dt>
-          <dd>{postsEntity.customers ? postsEntity.customers.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/posts" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

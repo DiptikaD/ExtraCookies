@@ -47,12 +47,10 @@ public class PostsAsserts {
     public static void assertPostsUpdatableFieldsEquals(Posts expected, Posts actual) {
         assertThat(expected)
             .as("Verify Posts relevant properties")
-            .satisfies(e -> assertThat(e.getPostId()).as("check postId").isEqualTo(actual.getPostId()))
             .satisfies(e -> assertThat(e.getPrice()).as("check price").isEqualTo(actual.getPrice()))
             .satisfies(e -> assertThat(e.getTitle()).as("check title").isEqualTo(actual.getTitle()))
             .satisfies(e -> assertThat(e.getLocation()).as("check location").isEqualTo(actual.getLocation()))
             .satisfies(e -> assertThat(e.getAvailability()).as("check availability").isEqualTo(actual.getAvailability()))
-            .satisfies(e -> assertThat(e.getRating()).as("check rating").isEqualTo(actual.getRating()))
             .satisfies(e -> assertThat(e.getTag()).as("check tag").isEqualTo(actual.getTag()));
     }
 
@@ -62,9 +60,5 @@ public class PostsAsserts {
      * @param expected the expected entity
      * @param actual the actual entity
      */
-    public static void assertPostsUpdatableRelationshipsEquals(Posts expected, Posts actual) {
-        assertThat(expected)
-            .as("Verify Posts relationships")
-            .satisfies(e -> assertThat(e.getCustomers()).as("check customers").isEqualTo(actual.getCustomers()));
-    }
+    public static void assertPostsUpdatableRelationshipsEquals(Posts expected, Posts actual) {}
 }

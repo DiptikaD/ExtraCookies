@@ -14,9 +14,6 @@
             <column name="id" type="bigint" autoIncrement="true" startWith="1500">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="uid" type="bigint">
-                <constraints nullable="false" />
-            </column>
             <column name="email" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -50,7 +47,6 @@
                   tableName="customers"
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
-            <column name="uid" type="numeric"/>
             <column name="email" type="string"/>
             <column name="user_name" type="string"/>
             <column name="password" type="string"/>

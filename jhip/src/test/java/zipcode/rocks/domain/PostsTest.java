@@ -1,7 +1,6 @@
 package zipcode.rocks.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static zipcode.rocks.domain.CustomersTestSamples.*;
 import static zipcode.rocks.domain.PostsTestSamples.*;
 
 import org.junit.jupiter.api.Test;
@@ -21,17 +20,5 @@ class PostsTest {
 
         posts2 = getPostsSample2();
         assertThat(posts1).isNotEqualTo(posts2);
-    }
-
-    @Test
-    void customersTest() {
-        Posts posts = getPostsRandomSampleGenerator();
-        Customers customersBack = getCustomersRandomSampleGenerator();
-
-        posts.setCustomers(customersBack);
-        assertThat(posts.getCustomers()).isEqualTo(customersBack);
-
-        posts.customers(null);
-        assertThat(posts.getCustomers()).isNull();
     }
 }

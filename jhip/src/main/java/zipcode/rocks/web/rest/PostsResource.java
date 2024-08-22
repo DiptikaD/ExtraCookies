@@ -126,9 +126,6 @@ public class PostsResource {
         Optional<Posts> result = postsRepository
             .findById(posts.getId())
             .map(existingPosts -> {
-                if (posts.getPostId() != null) {
-                    existingPosts.setPostId(posts.getPostId());
-                }
                 if (posts.getPrice() != null) {
                     existingPosts.setPrice(posts.getPrice());
                 }
@@ -140,9 +137,6 @@ public class PostsResource {
                 }
                 if (posts.getAvailability() != null) {
                     existingPosts.setAvailability(posts.getAvailability());
-                }
-                if (posts.getRating() != null) {
-                    existingPosts.setRating(posts.getRating());
                 }
                 if (posts.getTag() != null) {
                     existingPosts.setTag(posts.getTag());

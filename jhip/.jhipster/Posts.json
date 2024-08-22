@@ -5,11 +5,6 @@
   "applications": ["jhipster"],
   "fields": [
     {
-      "fieldName": "postId",
-      "fieldType": "Long",
-      "fieldValidateRules": ["required"]
-    },
-    {
       "fieldName": "price",
       "fieldType": "Double"
     },
@@ -19,15 +14,12 @@
     },
     {
       "fieldName": "location",
-      "fieldType": "String"
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "availability",
       "fieldType": "Instant"
-    },
-    {
-      "fieldName": "rating",
-      "fieldType": "Integer"
     },
     {
       "fieldName": "tag",

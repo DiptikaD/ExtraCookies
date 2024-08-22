@@ -32,12 +32,6 @@ export const CustomersDetail = () => {
           </dt>
           <dd>{customersEntity.id}</dd>
           <dt>
-            <span id="uid">
-              <Translate contentKey="jhipsterApp.customers.uid">Uid</Translate>
-            </span>
-          </dt>
-          <dd>{customersEntity.uid}</dd>
-          <dt>
             <span id="email">
               <Translate contentKey="jhipsterApp.customers.email">Email</Translate>
             </span>

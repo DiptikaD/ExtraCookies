@@ -18,14 +18,11 @@
         "title": "Posts"
       },
       "id": "ID",
-      "postId": "Post Id",
       "price": "Price",
       "title": "Title",
       "location": "Location",
       "availability": "Availability",
-      "rating": "Rating",
-      "tag": "Tag",
-      "customers": "Customers"
+      "tag": "Tag"
     }
   }
 }

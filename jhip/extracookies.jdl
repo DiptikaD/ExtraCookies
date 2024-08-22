@@ -5,7 +5,6 @@ application {
 }
 
 entity Customers {
-    uid Long required
     email String
     userName String required
     password String required
@@ -17,17 +16,11 @@ enum Tags {
 }
 
 entity Posts {
-    postId Long required
     price Double
     title String
-    location String
+    location String required
     availability Date
-    rating Integer
     tag Tags
-}
-
-relationship OneToMany {
-    Customers{uid} to Posts
 }
 
 paginate Posts with infinite-scroll

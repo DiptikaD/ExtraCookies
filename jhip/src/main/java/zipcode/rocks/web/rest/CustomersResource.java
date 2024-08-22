@@ -123,9 +123,6 @@ public class CustomersResource {
         Optional<Customers> result = customersRepository
             .findById(customers.getId())
             .map(existingCustomers -> {
-                if (customers.getUid() != null) {
-                    existingCustomers.setUid(customers.getUid());
-                }
                 if (customers.getEmail() != null) {
                     existingCustomers.setEmail(customers.getEmail());
                 }

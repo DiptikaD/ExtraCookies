@@ -35,9 +35,6 @@ import zipcode.rocks.repository.PostsRepository;
 @WithMockUser
 class PostsResourceIT {
 
-    private static final Long DEFAULT_POST_ID = 1L;
-    private static final Long UPDATED_POST_ID = 2L;
-
     private static final Double DEFAULT_PRICE = 1D;
     private static final Double UPDATED_PRICE = 2D;
 
@@ -49,9 +46,6 @@ class PostsResourceIT {
 
     private static final Instant DEFAULT_AVAILABILITY = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_AVAILABILITY = Instant.now().truncatedTo(ChronoUnit.MILLIS);
-
-    private static final Integer DEFAULT_RATING = 1;
-    private static final Integer UPDATED_RATING = 2;
 
     private static final Tags DEFAULT_TAG = Tags.PRODUCE;
     private static final Tags UPDATED_TAG = Tags.READY_MADE;
@@ -86,12 +80,10 @@ class PostsResourceIT {
      */
     public static Posts createEntity(EntityManager em) {
         Posts posts = new Posts()
-            .postId(DEFAULT_POST_ID)
             .price(DEFAULT_PRICE)
             .title(DEFAULT_TITLE)
             .location(DEFAULT_LOCATION)
             .availability(DEFAULT_AVAILABILITY)
-            .rating(DEFAULT_RATING)
             .tag(DEFAULT_TAG);
         return posts;
     }
@@ -104,12 +96,10 @@ class PostsResourceIT {
      */
     public static Posts createUpdatedEntity(EntityManager em) {
         Posts posts = new Posts()
-            .postId(UPDATED_POST_ID)
             .price(UPDATED_PRICE)
             .title(UPDATED_TITLE)
             .location(UPDATED_LOCATION)
             .availability(UPDATED_AVAILABILITY)
-            .rating(UPDATED_RATING)
             .tag(UPDATED_TAG);
         return posts;
     }
@@ -168,10 +158,10 @@ class PostsResourceIT {
 
     @Test
     @Transactional
-    void checkPostIdIsRequired() throws Exception {
+    void checkLocationIsRequired() throws Exception {
         long databaseSizeBeforeTest = getRepositoryCount();
         // set the field null
-        posts.setPostId(null);
+        posts.setLocation(null);
 
         // Create the Posts, which fails.
 
@@ -194,12 +184,10 @@ class PostsResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(posts.getId().intValue())))
-            .andExpect(jsonPath("$.[*].postId").value(hasItem(DEFAULT_POST_ID.intValue())))
             .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE.doubleValue())))
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
             .andExpect(jsonPath("$.[*].location").value(hasItem(DEFAULT_LOCATION)))
             .andExpect(jsonPath("$.[*].availability").value(hasItem(DEFAULT_AVAILABILITY.toString())))
-            .andExpect(jsonPath("$.[*].rating").value(hasItem(DEFAULT_RATING)))
             .andExpect(jsonPath("$.[*].tag").value(hasItem(DEFAULT_TAG.toString())));
     }
 
@@ -215,12 +203,10 @@ class PostsResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(posts.getId().intValue()))
-            .andExpect(jsonPath("$.postId").value(DEFAULT_POST_ID.intValue()))
             .andExpect(jsonPath("$.price").value(DEFAULT_PRICE.doubleValue()))
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE))
             .andExpect(jsonPath("$.location").value(DEFAULT_LOCATION))
             .andExpect(jsonPath("$.availability").value(DEFAULT_AVAILABILITY.toString()))
-            .andExpect(jsonPath("$.rating").value(DEFAULT_RATING))
             .andExpect(jsonPath("$.tag").value(DEFAULT_TAG.toString()));
     }
 
@@ -244,12 +230,10 @@ class PostsResourceIT {
         // Disconnect from session so that the updates on updatedPosts are not directly saved in db
         em.detach(updatedPosts);
         updatedPosts
-            .postId(UPDATED_POST_ID)
             .price(UPDATED_PRICE)
             .title(UPDATED_TITLE)
             .location(UPDATED_LOCATION)
             .availability(UPDATED_AVAILABILITY)
-            .rating(UPDATED_RATING)
             .tag(UPDATED_TAG);
 
         restPostsMockMvc
@@ -326,12 +310,7 @@ class PostsResourceIT {
         Posts partialUpdatedPosts = new Posts();
         partialUpdatedPosts.setId(posts.getId());
 
-        partialUpdatedPosts
-            .postId(UPDATED_POST_ID)
-            .title(UPDATED_TITLE)
-            .location(UPDATED_LOCATION)
-            .availability(UPDATED_AVAILABILITY)
-            .rating(UPDATED_RATING);
+        partialUpdatedPosts.price(UPDATED_PRICE).location(UPDATED_LOCATION).availability(UPDATED_AVAILABILITY).tag(UPDATED_TAG);
 
         restPostsMockMvc
             .perform(
@@ -360,12 +339,10 @@ class PostsResourceIT {
         partialUpdatedPosts.setId(posts.getId());
 
         partialUpdatedPosts
-            .postId(UPDATED_POST_ID)
             .price(UPDATED_PRICE)
             .title(UPDATED_TITLE)
             .location(UPDATED_LOCATION)
             .availability(UPDATED_AVAILABILITY)
-            .rating(UPDATED_RATING)
             .tag(UPDATED_TAG);
 
         restPostsMockMvc

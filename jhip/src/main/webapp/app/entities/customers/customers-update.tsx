@@ -47,9 +47,6 @@ export const CustomersUpdate = () => {
     if (values.id !== undefined && typeof values.id !== 'number') {
       values.id = Number(values.id);
     }
-    if (values.uid !== undefined && typeof values.uid !== 'number') {
-      values.uid = Number(values.uid);
-    }
 
     const entity = {
       ...customersEntity,
@@ -95,17 +92,6 @@ export const CustomersUpdate = () => {
                   validate={{ required: true }}
                 />
               ) : null}
-              <ValidatedField
-                label={translate('jhipsterApp.customers.uid')}
-                id="customers-uid"
-                name="uid"
-                data-cy="uid"
-                type="text"
-                validate={{
-                  required: { value: true, message: translate('entity.validation.required') },
-                  validate: v => isNumber(v) || translate('entity.validation.number'),
-                }}
-              />
               <ValidatedField
                 label={translate('jhipsterApp.customers.email')}
                 id="customers-email"
