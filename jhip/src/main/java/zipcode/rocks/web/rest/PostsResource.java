@@ -29,6 +29,7 @@ import zipcode.rocks.web.rest.errors.BadRequestAlertException;
  */
 @RestController
 @RequestMapping("/api/posts")
+@CrossOrigin(origins = "http://localhost:3000/")
 @Transactional
 public class PostsResource {
 
