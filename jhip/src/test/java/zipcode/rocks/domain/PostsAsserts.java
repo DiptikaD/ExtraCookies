@@ -51,7 +51,8 @@ public class PostsAsserts {
             .satisfies(e -> assertThat(e.getTitle()).as("check title").isEqualTo(actual.getTitle()))
             .satisfies(e -> assertThat(e.getLocation()).as("check location").isEqualTo(actual.getLocation()))
             .satisfies(e -> assertThat(e.getAvailability()).as("check availability").isEqualTo(actual.getAvailability()))
-            .satisfies(e -> assertThat(e.getTag()).as("check tag").isEqualTo(actual.getTag()));
+            .satisfies(e -> assertThat(e.getTag()).as("check tag").isEqualTo(actual.getTag()))
+            .satisfies(e -> assertThat(e.getImage()).as("check image").isEqualTo(actual.getImage()));
     }
 
     /**

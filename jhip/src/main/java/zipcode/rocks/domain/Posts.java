@@ -38,6 +38,9 @@ public class Posts implements Serializable {
     @Column(name = "tag")
     private Tags tag;
 
+    @Column(name = "image")
+    private String image;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -118,6 +121,19 @@ public class Posts implements Serializable {
         this.tag = tag;
     }
 
+    public String getImage() {
+        return this.image;
+    }
+
+    public Posts image(String image) {
+        this.setImage(image);
+        return this;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -147,6 +163,7 @@ public class Posts implements Serializable {
             ", location='" + getLocation() + "'" +
             ", availability='" + getAvailability() + "'" +
             ", tag='" + getTag() + "'" +
+            ", image='" + getImage() + "'" +
             "}";
     }
 }

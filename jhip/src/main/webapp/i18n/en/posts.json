@@ -22,7 +22,8 @@
       "title": "Title",
       "location": "Location",
       "availability": "Availability",
-      "tag": "Tag"
+      "tag": "Tag",
+      "image": "Image"
     }
   }
 }

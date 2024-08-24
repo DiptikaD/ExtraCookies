@@ -142,8 +142,11 @@ public class PostsResource {
                 if (posts.getTag() != null) {
                     existingPosts.setTag(posts.getTag());
                 }
+                if (posts.getImage() != null) {
+                    existingPosts.setImage(posts.getImage());
+                }
 
-                return existingPosts;
+                        return existingPosts;
             })
             .map(postsRepository::save);
 

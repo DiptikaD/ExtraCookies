@@ -50,6 +50,9 @@ class PostsResourceIT {
     private static final Tags DEFAULT_TAG = Tags.PRODUCE;
     private static final Tags UPDATED_TAG = Tags.READY_MADE;
 
+    private static final String DEFAULT_IMAGE = "AAAAAAAAAA";
+    private static final String UPDATED_IMAGE = "BBBBBBBBBB";
+
     private static final String ENTITY_API_URL = "/api/posts";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -84,7 +87,8 @@ class PostsResourceIT {
             .title(DEFAULT_TITLE)
             .location(DEFAULT_LOCATION)
             .availability(DEFAULT_AVAILABILITY)
-            .tag(DEFAULT_TAG);
+            .tag(DEFAULT_TAG)
+            .image(DEFAULT_IMAGE);
         return posts;
     }
 
@@ -100,7 +104,8 @@ class PostsResourceIT {
             .title(UPDATED_TITLE)
             .location(UPDATED_LOCATION)
             .availability(UPDATED_AVAILABILITY)
-            .tag(UPDATED_TAG);
+            .tag(UPDATED_TAG)
+            .image(UPDATED_IMAGE);
         return posts;
     }
 
@@ -188,7 +193,8 @@ class PostsResourceIT {
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
             .andExpect(jsonPath("$.[*].location").value(hasItem(DEFAULT_LOCATION)))
             .andExpect(jsonPath("$.[*].availability").value(hasItem(DEFAULT_AVAILABILITY.toString())))
-            .andExpect(jsonPath("$.[*].tag").value(hasItem(DEFAULT_TAG.toString())));
+            .andExpect(jsonPath("$.[*].tag").value(hasItem(DEFAULT_TAG.toString())))
+            .andExpect(jsonPath("$.[*].image").value(hasItem(DEFAULT_IMAGE)));
     }
 
     @Test
@@ -207,7 +213,8 @@ class PostsResourceIT {
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE))
             .andExpect(jsonPath("$.location").value(DEFAULT_LOCATION))
             .andExpect(jsonPath("$.availability").value(DEFAULT_AVAILABILITY.toString()))
-            .andExpect(jsonPath("$.tag").value(DEFAULT_TAG.toString()));
+            .andExpect(jsonPath("$.tag").value(DEFAULT_TAG.toString()))
+            .andExpect(jsonPath("$.image").value(DEFAULT_IMAGE));
     }
 
     @Test
@@ -234,7 +241,8 @@ class PostsResourceIT {
             .title(UPDATED_TITLE)
             .location(UPDATED_LOCATION)
             .availability(UPDATED_AVAILABILITY)
-            .tag(UPDATED_TAG);
+            .tag(UPDATED_TAG)
+            .image(UPDATED_IMAGE);
 
         restPostsMockMvc
             .perform(
@@ -310,7 +318,12 @@ class PostsResourceIT {
         Posts partialUpdatedPosts = new Posts();
         partialUpdatedPosts.setId(posts.getId());
 
-        partialUpdatedPosts.price(UPDATED_PRICE).location(UPDATED_LOCATION).availability(UPDATED_AVAILABILITY).tag(UPDATED_TAG);
+        partialUpdatedPosts
+            .price(UPDATED_PRICE)
+            .location(UPDATED_LOCATION)
+            .availability(UPDATED_AVAILABILITY)
+            .tag(UPDATED_TAG)
+            .image(UPDATED_IMAGE);
 
         restPostsMockMvc
             .perform(
@@ -343,7 +356,8 @@ class PostsResourceIT {
             .title(UPDATED_TITLE)
             .location(UPDATED_LOCATION)
             .availability(UPDATED_AVAILABILITY)
-            .tag(UPDATED_TAG);
+            .tag(UPDATED_TAG)
+            .image(UPDATED_IMAGE);
 
         restPostsMockMvc
             .perform(

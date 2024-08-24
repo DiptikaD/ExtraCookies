@@ -62,6 +62,12 @@ export const PostsDetail = () => {
             </span>
           </dt>
           <dd>{postsEntity.tag}</dd>
+          <dt>
+            <span id="image">
+              <Translate contentKey="jhipsterApp.posts.image">Image</Translate>
+            </span>
+          </dt>
+          <dd>{postsEntity.image}</dd>
         </dl>
         <Button tag={Link} to="/posts" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

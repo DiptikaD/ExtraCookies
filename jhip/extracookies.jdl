@@ -21,6 +21,7 @@ entity Posts {
     location String required
     availability Date
     tag Tags
+    image String
 }
 
 paginate Posts with infinite-scroll

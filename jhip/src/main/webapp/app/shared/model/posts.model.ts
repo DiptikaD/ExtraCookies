@@ -8,6 +8,7 @@ export interface IPosts {
   location?: string;
   availability?: dayjs.Dayjs | null;
   tag?: keyof typeof Tags | null;
+  image?: string | null;
 }
 
 export const defaultValue: Readonly<IPosts> = {};

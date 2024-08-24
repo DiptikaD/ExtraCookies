@@ -150,6 +150,10 @@ export const Posts = () => {
                   <th className="hand" onClick={sort('tag')}>
                     <Translate contentKey="jhipsterApp.posts.tag">Tag</Translate> <FontAwesomeIcon icon={getSortIconByFieldName('tag')} />
                   </th>
+                  <th className="hand" onClick={sort('image')}>
+                    <Translate contentKey="jhipsterApp.posts.image">Image</Translate>{' '}
+                    <FontAwesomeIcon icon={getSortIconByFieldName('image')} />
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -168,6 +172,7 @@ export const Posts = () => {
                     <td>
                       <Translate contentKey={`jhipsterApp.Tags.${posts.tag}`} />
                     </td>
+                    <td>{posts.image}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`/posts/${posts.id}`} color="info" size="sm" data-cy="entityDetailsButton">

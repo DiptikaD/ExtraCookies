@@ -29,6 +29,9 @@
             <column name="tag" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="image" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
         <dropDefaultValue tableName="posts" columnName="availability" columnDataType="${datetimeType}"/>
@@ -56,6 +59,7 @@
             <column name="location" type="string"/>
             <column name="availability" type="date"/>
             <column name="tag" type="string"/>
+            <column name="image" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

@@ -25,6 +25,10 @@
       "fieldName": "tag",
       "fieldType": "Tags",
       "fieldValues": "PRODUCE,READY_MADE,OTHER"
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "String"
     }
   ],
   "name": "Posts",

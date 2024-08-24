@@ -127,6 +127,7 @@ export const PostsUpdate = () => {
                   </option>
                 ))}
               </ValidatedField>
+              <ValidatedField label={translate('jhipsterApp.posts.image')} id="posts-image" name="image" data-cy="image" type="text" />
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/posts" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
