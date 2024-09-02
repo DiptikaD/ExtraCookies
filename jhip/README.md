@@ -36,5 +36,5 @@ In a neighborhood, it can be challenging to discover local events like bake sale
     - **SQL**: For querying and managing the database.
 
 
-  **Link to backend**:
-  https://github.com/DiptikaD/ExtraCookies
+  **Link to frontend**:
+  https://github.com/DiptikaD/Extra-Cookies-Simple
